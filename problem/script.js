@@ -249,16 +249,20 @@ const obj = {
   ]
 };
 
-let num = prompt('Insert number');
-let count = 0;
+const str = prompt('Find:');
 
-if (isNaN(num) || num == "" || num == null) {
+if (str == '' || str == null) {
   alert('Wrong action');
 } else {
+  let flag = false;
   for (let i = 0; i < obj.data.length; i++) {
-    if (num <= obj.data[i].length) {
-      count++;
+    if (obj.data[i].toLowerCase().indexOf(str.toLowerCase()) != -1) {
+      alert(obj.data[i]);
+      flag = true;
+      break;
     }
   }
-  alert(count);
+  if (!flag) {
+    alert('No matches');
+  }
 }
