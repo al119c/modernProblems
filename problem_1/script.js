@@ -4,7 +4,15 @@ const num = +prompt("Enter year", "from 1 to 2999");
 
 function checkIsLeap(year) {
   if (year % 4 == 0) {
-    alert(`${year} is a leap year`);
+    if (year % 100 == 0) {
+      if (year % 400 == 0) {
+        alert(`${year} is a leap year`);
+      } else {
+        alert(`${year} is not a leap year`);
+      }
+    } else {
+      alert(`${year} is a leap year`);
+    }
   } else {
     alert(`${year} is not a leap year`);
   }
