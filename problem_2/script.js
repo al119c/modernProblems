@@ -2,15 +2,10 @@
 
 const arr = prompt("Enter date", "dd.mm.yyyy").split(".");
 
-let monthIs,
-    chYear = false,
-    chDay = false,
-    isLeap = null;
-
-checkYear(arr[2]);
-checkIsLeap(arr[2]);
-checkMonth(arr[1]);
-checkDay(arr[0]);
+let chYear = checkYear(arr[2]),
+    isLeap = checkIsLeap(arr[2]),
+    monthIs = checkMonth(arr[1]),
+    chDay = checkDay(arr[0]);
 
 if (monthIs == null || !chYear || !chDay) {
     alert("Wrong date value");
@@ -25,52 +20,52 @@ function checkIsLeap(year) {
     if (year % 4 == 0) {
         if (year % 100 == 0) {
             if (year % 400 == 0) {
-                isLeap = true;
+                return true;
             } else {
-                isLeap = false;
+                return false;
             }
         } else {
-            isLeap = true;
+            return true;
         }
     } else {
-        isLeap = false;
+        return false;
     }
 }
 
 function checkYear(year) {
     if (+year > 0 || +year < 3000) {
-        chYear = true;
+        return true;
     }
 }
 
 function checkMonth(month) {
     if (isNaN(+month) || +month < 1 || +month > 12) {
-        monthIs = null;
+        return null;
     } else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
-        monthIs = "long";
+        return "long";
     } else if (+month == 2) {
-        monthIs = "feb";
+        return "feb";
     } else {
-        monthIs = "short";
+        return "short";
     }
 }
 
 function checkDay(day) {
     if (monthIs == "long") {
         if (+day > 0 && +day < 32) {
-            chDay = true;
+            return true;
         }
     } else if (monthIs == "short") {
         if (+day > 0 && +day < 31) {
-            chDay = true;
+            return true;
         }
     } else if (monthIs == "feb" && isLeap) {
         if (+day > 0 && +day < 30) {
-            chDay = true;
+            return true;
         }
     } else if (monthIs == "feb" && !isLeap) {
         if (+day > 0 && +day < 29) {
-            chDay = true;
+            return true;
         }
     }
 }
