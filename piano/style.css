@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#piano {
+    display: flex;
+    justify-content: center;
+    background-color: gray;
+}
+
+.piano-button {
+    width: 200px;
+    height: 800px;
+    border: 5px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: white;
+}
+
+.piano-button.active {
+    background-color: rgb(236, 236, 236);
+}
