@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.container {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-content: space-around;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-title {
+  margin: 10px 0;
+}
+
+.button {
+  margin-top: 10px;
+}
+
+.text {
+  text-align: center;
+  border-bottom: 1px solid grey;
+}
